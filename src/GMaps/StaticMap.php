@@ -75,7 +75,7 @@ class StaticMap
      * @param   array   $attributes The attributes to add to the html tag
      * @return  string
      */
-    public function getImageTag($attributes)
+    public function getImageTag($attributes = array())
     {
         $html = '<img ';
 
@@ -86,7 +86,7 @@ class StaticMap
         ));
 
         foreach ($attributes as $name => $value) {
-            $html .= $name . '=' .$value . ' ';
+            $html .= $name . '="' .$value . '" ';
         }
 
         return $html . '/>';
