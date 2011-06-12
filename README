@@ -4,4 +4,4 @@ It can be used for generate a static map using simple PHP.
 
 The main class generates an image tag or a url that embed a map following the given configuration.
 
-Example: see example.php
+See test for examples

@@ -83,12 +83,7 @@ class StaticMap
         $this->markers[] = $marker;
     }
 
-    /**
-     * Builds the static map url
-     *
-     * @return string
-     */
-    public function getUrl()
+    public function __toString()
     {
         $parameters = array(
             "maptype"   => $this->type,
@@ -105,8 +100,7 @@ class StaticMap
         $markers = implode('&', $markers);
 
         $url = "http://maps.google.com/maps/api/staticmap?" . http_build_query($parameters);
-
-        if (count($markers) > 0) {
+        if (count($this->markers) > 0) {
             $url .= "&" . $markers;
         }
         return $url;
@@ -123,7 +117,7 @@ class StaticMap
         $html = '<img ';
 
         $attributes = array_merge($attributes, array(
-            'src'       => $this->getUrl(),
+            'src'       => $this->__toString(),
             'width'     => $this->width,
             'height'    => $this->height,
         ));
