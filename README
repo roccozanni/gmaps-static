@@ -1,7 +1,5 @@
 gmaps-static is a simple PHP wrapper over the Google Maps Static API.
-
 It can be used for generate a static map using simple PHP.
 
 The main class generates an image tag or a url that embed a map following the given configuration.
-
-See test for examples
+See tests for examples
