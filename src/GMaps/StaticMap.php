@@ -17,7 +17,7 @@ class StaticMap
     /**
      * Creates a new map
      *
-     * @param   GMaps\Location    $center The location to center the map to
+     * @param   GMaps\Location\Coordinate | GMaps\Location\Address   $center The location to center the map to
      */
     public function __construct($center)
     {
@@ -95,7 +95,7 @@ class StaticMap
             "sensor"    => "false",
             "size"      => $this->width . "x" . $this->height,
             "zoom"      => $this->zoom,
-            "center"    => $this->center->getLongitude() . ',' . $this->center->getLatitude()
+            "center"    => $this->center->__toString()
         );
 
         $markers = array();
@@ -104,7 +104,12 @@ class StaticMap
         }
         $markers = implode('&', $markers);
 
-        return "http://maps.google.com/maps/api/staticmap?" . http_build_query($parameters) . "&" . $markers;
+        $url = "http://maps.google.com/maps/api/staticmap?" . http_build_query($parameters);
+
+        if (count($markers) > 0) {
+            $url .= "&" . $markers;
+        }
+        return $url;
     }
 
     /**

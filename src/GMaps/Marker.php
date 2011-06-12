@@ -13,6 +13,11 @@ class Marker
     private static $ALLOWED_COLORS = array(
         'black', 'brown', 'green', 'purple', 'yellow', 'blue', 'gray', 'orange', 'red', 'white');
 
+    /**
+     * Creates a new marker that point to the given location
+     *
+     * @param   GMaps\Location\Coordinate | GMaps\Location\Address $location
+     */
     public function __construct($location)
     {
         $this->location = $location;
@@ -42,6 +47,6 @@ class Marker
     {
         return "size:" . $this->size . "|" .
                "color:" . $this->color . "|" .
-               $this->location->getLongitude() . "," . $this->location->getLatitude();
+               $this->location->__toString();
     }
 }

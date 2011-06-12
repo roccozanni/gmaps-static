@@ -1,8 +1,8 @@
 <?php
 
-namespace GMaps;
+namespace GMaps\Location;
 
-class Location
+class Coordinate
 {
     private $longitude;
     private $latitude;
@@ -17,19 +17,8 @@ class Location
         $this->latitude  = $latitude;
     }
 
-    /**
-     * @return float
-     */
-    public function getLongitude()
+    public function __toString()
     {
-        return $this->longitude;
-    }
-
-    /**
-     * @return float
-     */
-    public function getLatitude()
-    {
-        return $this->latitude;
+        return $this->longitude . "," . $this->latitude;
     }
 }
